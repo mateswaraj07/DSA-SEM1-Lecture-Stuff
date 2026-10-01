@@ -5,7 +5,6 @@ print("Enter Elements: ")
 for i in range(1,n+1):
     e = int(input())
     arr.append(e)
-print("Elements: ",arr)
 sum = 0
 for i in range(1,n+1):
     sum += i
