@@ -24,4 +24,13 @@ class SLL:
     def __init__(self):
         self.head=None
 
-    
+# Append
+    def append(self, new_node):
+        if self.head==None:
+            self.head=new_node
+        else:
+            temp=self.head
+            while temp.next:
+                temp=temp.next
+            temp.next=new_node
+
