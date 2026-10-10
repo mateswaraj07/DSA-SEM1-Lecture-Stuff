@@ -111,3 +111,16 @@ class SLL:
         #skip the node being delete
         prev.next=temp.next
 
+# Reverse
+    def reverse(self):
+        prev=None
+        temp=self.head
+
+        while temp!=None:
+            next_node=temp.next
+            temp.next=prev
+            prev=temp
+            temp=next_node
+
+        self.head=prev
+
