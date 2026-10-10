@@ -43,3 +43,29 @@ class SLL:
 
         print()
 
+# Insert at specific position
+    def insert(self, new_node, pos):
+        if pos<1:
+            print("Invalid position!")
+            return
+        if pos==1:
+            new_node.next=self.head
+            self.head=new_node
+            return
+        
+        temp=self.head
+        p=1
+
+        #Reach node before required position
+        while temp!=None and p<pos-1:
+            temp=temp.next
+            p+=1
+
+        #Check whether the position is valid 
+        if temp==None:
+            print("Invalid Position!")
+            return
+
+        new_node.next=temp.next
+        temp.next=new_node
+
