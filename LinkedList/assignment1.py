@@ -34,3 +34,12 @@ class SLL:
                 temp=temp.next
             temp.next=new_node
 
+#Traverse
+    def print(self):
+        temp=self.head
+        while temp:
+            print(temp.data, end=" ")
+            temp=temp.next
+
+        print()
+
