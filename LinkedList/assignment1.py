@@ -124,3 +124,15 @@ class SLL:
 
         self.head=prev
 
+# Sum of two every 2 consecutive node values
+    def consecutive_sum(self):
+        if self.head==None or self.head.next==None:
+            print("At least two nodes are required!")
+            return
+
+        temp=self.head
+        while temp!=None and temp.next!=None:
+            total=temp.data+temp.next.data
+            print(temp.data," + ",temp.next.data," = ",total)
+            temp=temp.next
+
