@@ -4,11 +4,11 @@
 # 3. Insert node at a specific position
 # 4. Delete alternate nodes in the linked list
 class Node:
-    def _init_(self, data):
+    def __init__(self, data):
         self.data=data
         self.next=None
 class SLL:
-    def _init_(self):
+    def __init__(self):
         self.head=None
 
     #Append
