@@ -62,6 +62,15 @@ class DLL:
                 temp=temp.prev
             print("None")
 
+    def count_occurrence(self, target):
+        count=0
+        temp=self.head
+        while temp.next:
+            temp=temp.next
+            if temp.data==target:
+                count+=1
+        print(target, " occured ",count, " times.")
+
     # def reverse(self):
     #     curr=self.head
     #     prev=None
@@ -124,6 +133,7 @@ list1.print()
 list1.delete(50)
 list1.print()
 list1.printrev()
+list1.count_occurrence(60)
 # print("Reversed LL:")
 # list1.reverse()
 # list1.print()
