@@ -36,24 +36,21 @@ class DLL:
             temp.next = new_node   
             
 
-    # def delete(self, value):
-    #     temp = self.head
-    #     if temp == None:
-    #         print("List is empty")
-    #         return
-    #     if temp.data == value:  # Delete the first node
-    #         self.head = self.head.next
-    #         return
-    #     prev = temp
-    #     temp = temp.next
-    #     while temp != None and temp.data != value:
-    #         prev = temp
-    #         temp = temp.next
-    #     if temp == None:
-    #         print("Value is not present in the list")
-    #         return
-    #     prev.next = temp.next
-    #     temp = None
+    def delete(self, value):
+        temp=self.head
+        if temp.data==value: #first node
+            self.head=self.head.next
+            self.head.prev=None
+        else:
+            while temp.data!=value and temp:
+                temp=temp.next
+                if temp==None:
+                    print("Value not present")
+                    return
+            temp.prev.next=temp.next
+            if temp.next:
+                temp.next.prev=temp.prev
+            temp=None
 
     # def reverse(self):
     #     curr=self.head
@@ -106,12 +103,16 @@ list1.insert(Node(34),1)
 list1.print()
 list1.insert(Node(60),6)
 list1.print()
-# list1.insert(Node(2),2)
-# list1.print()
-# list1.delete(2)
-# list1.print()
-# list1.delete(3)
-# list1.print()
+list1.insert(Node(2),2)
+list1.print()
+list1.delete(2)
+list1.print()
+list1.delete(30)
+list1.print()
+list1.delete(34)
+list1.print()
+list1.delete(50)
+list1.print()
 # print("Reversed LL:")
 # list1.reverse()
 # list1.print()
