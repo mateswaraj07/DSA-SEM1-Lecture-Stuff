@@ -52,6 +52,16 @@ class DLL:
                 temp.next.prev=temp.prev
             temp=None
 
+    def printrev(self):
+            temp=self.head
+            print("\nList elements in reverse order: ",end=" ")
+            while(temp.next):
+                temp=temp.next
+            while temp:
+                print(temp.data, end=" -> ")
+                temp=temp.prev
+            print("None")
+
     # def reverse(self):
     #     curr=self.head
     #     prev=None
@@ -113,6 +123,7 @@ list1.delete(34)
 list1.print()
 list1.delete(50)
 list1.print()
+list1.printrev()
 # print("Reversed LL:")
 # list1.reverse()
 # list1.print()
