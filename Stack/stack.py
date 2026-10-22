@@ -23,6 +23,12 @@ class Stack:
             self.top=self.top.next
             temp=None
 
+    def reverse(self):
+        temp=self.top
+        while temp:
+            s1.push(Node(temp.data))
+            temp=temp.next
+
     def print(self):
         temp=self.top
         print("Stack Elements:")
@@ -31,16 +37,19 @@ class Stack:
             temp=temp.next
 
 s = Stack()
+s1=Stack()
 s.push(Node(10))
 s.push(Node(20))
 s.push(Node(30))
 s.push(Node(40))
 s.push(Node(50))
 s.print()
-s.pop()
-s.print()
-s.pop()
-s.pop()
-s.pop()
-s.pop()
-s.pop()
+# s.pop()
+# s.print()
+# s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+# s.pop()
+s.reverse()
+s1.print()
