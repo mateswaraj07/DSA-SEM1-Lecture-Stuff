@@ -14,6 +14,12 @@ class Stack:
         new_node.next=self.top
         self.top=new_node
 
+    def pop(self):
+        temp=self.top
+        print("Popped Element: ", temp.data)
+        self.top=self.top.next
+        temp=None
+
     def print(self):
         temp=self.top
         print("Stack Elements:")
@@ -27,4 +33,6 @@ s.push(Node(20))
 s.push(Node(30))
 s.push(Node(40))
 s.push(Node(50))
+s.print()
+s.pop()
 s.print()
