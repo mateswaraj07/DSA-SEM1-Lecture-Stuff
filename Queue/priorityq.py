@@ -31,6 +31,7 @@ class priorityQueue:
             temp=self.front
             print("Node Deleted: ",temp.data)
             self.front=self.front.next
+            temp=None
         else:
             print("Queue is Empty")
 
