@@ -1,2 +1,4 @@
 BST - Binary Serach Tree
 - All values in left subtree < parent
+- All values in the right subtree >= parent
+- Every subtree follows above 2 rules
