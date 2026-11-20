@@ -53,7 +53,42 @@ class BST:
 #   left child of the current node.
 # 4. After the left subtree has been traversed, the function prints the data of the current node.
 # 5. The function then recursively calls itself on the right child of the current node.
- 
+    def preorder(self,rt):
+            if rt is None:
+                return
+            else:
+                print(rt.data,end=" ")
+                self.preorder(rt.left)
+                self.preorder(rt.right)
+    def postorder(self,rt):
+            if rt is None:
+                return
+            else:
+                self.postorder(rt.left)
+                self.postorder(rt.right)
+                print(rt.data,end=" ")
+#the logic and execution flow of the preorder and postorder functions are similar to the inorder function, 
+# with the main difference being the order in which the nodes are processed. 
+# In preorder, the current node is processed before its children, 
+# while in postorder, the current node is processed after its children.
+    def min_val(self):
+        if self.root is None:
+            return None
+        current = self.root
+        while current.left is not None:
+            current = current.left
+        min_val = current.data
+        return min_val
+
+    def max_val(self):
+        if self.root is None:
+            return None
+        current = self.root
+        while current.right is not None:
+            current = current.right
+        max_val = current.data
+        return max_val
+
 b=BST()
 b.insert(Node(100))
 b.insert(Node(10))
@@ -61,4 +96,11 @@ b.insert(Node(450))
 b.insert(Node(0))
 b.insert(Node(65))
 b.insert(Node(300))
+print("Inorder Traversal:")
 b.inorder(b.root)
+print("\nPreorder Traversal:")
+b.preorder(b.root)
+print("\nPostorder Traversal:")
+b.postorder(b.root)
+print("\nMinimum Value in BST:", b.min_val())
+print("Maximum Value in BST:", b.max_val())
