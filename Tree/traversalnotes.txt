@@ -1,0 +1,4 @@
+Inorder Traversal:
+- It is a traversal method in which we traverse the tree in the sequence:- Left-Root-Right
+
+Preorder Traversal:
