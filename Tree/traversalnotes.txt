@@ -2,3 +2,7 @@ Inorder Traversal:
 - It is a traversal method in which we traverse the tree in the sequence:- Left-Root-Right
 
 Preorder Traversal:
+- It is a traversal method in which we traverse the tree in the sequence:- Root-Left-Right
+
+Postorder Traversal:
+- It is a traversal method in which we traverse the tree in the sequence:- Left-Right-Root
