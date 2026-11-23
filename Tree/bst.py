@@ -93,6 +93,8 @@ class BST:
         # if a node is deleted it is replaced by its inorder successor(left and right child)
         # if a node is a left child of its parent, it is replaced by its right child
         # if a node is a right child of its parent, it is replaced by its left
+        # leaf node is deleted directly no replacement is needed
+        pass
 
 b=BST()
 b.insert(Node(100))
