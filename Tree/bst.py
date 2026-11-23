@@ -89,38 +89,59 @@ class BST:
         max_val = current.data
         return max_val
     
+    # def del_node(self,root,val):
+    #     # if a node is deleted it is replaced by its inorder successor(left and right child)
+    #     # if a node is a left child of its parent, it is replaced by its right child
+    #     # if a node is a right child of its parent, it is replaced by its left
+    #     # leaf node is deleted directly no replacement is needed
+    #     if root is None:
+    #         return root
+    #     if val<root.data:   #for left subtree
+    #         root.left=self.del_node(root.left,val)
+    #     elif val>root.data:   #for right subtree
+    #         root.right=self.del_node(root.right,val)
+    #     else:
+    #         if root.left is None: #if the node to be deleted has no left child, return its right child
+    #             return root.right
+    #         if root.right is None: #if the node to be deleted has no right child, return its left child
+    #             return root.left
+    #     #When node has both left and right child, find the inorder successor of the node to be deleted
+    #     successor=self.get_successor(root)
+    #     root.data=successor.data            
+    #     root.right=self.del_node(root.right,successor.data)
+    #     return root
     def del_node(self,root,val):
-        # if a node is deleted it is replaced by its inorder successor(left and right child)
-        # if a node is a left child of its parent, it is replaced by its right child
-        # if a node is a right child of its parent, it is replaced by its left
-        # leaf node is deleted directly no replacement is needed
         if root is None:
             return root
-        if val<root.data:   #for left subtree
-            root.left=self.delete(root.left,val)
-        elif val>root.data:   #for right subtree
-            root.right=self.delete(root.right,val)
+        if val < root.data:
+            root.left = self.del_node(root.left,val)
+        elif val > root.data:
+            root.right = self.del_node(root.right,val)
         else:
-            if root.left is None: #if the node to be deleted has no left child, return its right child
+            if root.left is None:
                 return root.right
-            if root.right is None: #if the node to be deleted has no right child, return its left child
+            elif root.right is None:
                 return root.left
-        #When node has both left and right child, find the inorder successor of the node to be deleted
-        successor=self.get_successor(root)
-        root.data=successor.data            
-        root.right=self.del_node(root.right,successor.data)
+            successor = self.get_successor(root)
+            root.data = successor.data
+            root.right = self.del_node(root.right,successor.data)
         return root
 
-    def get_successor(self,node):
-        pass
+    def get_successor(self,temp):
+        temp=temp.right
+        while temp is not None and temp.left is not None:
+            temp=temp.left
+        return temp
 
 b=BST()
 b.insert(Node(100))
 b.insert(Node(10))
 b.insert(Node(450))
-b.insert(Node(0))
+b.insert(Node(4))
 b.insert(Node(65))
 b.insert(Node(300))
+b.insert(Node(500))
+b.insert(Node(50))
 print("Inorder Traversal:")
 b.inorder(b.root)
 print("\nPreorder Traversal:")
@@ -129,3 +150,6 @@ print("\nPostorder Traversal:")
 b.postorder(b.root)
 print("\nMinimum Value in BST:", b.min_val())
 print("Maximum Value in BST:", b.max_val())
+b.del_node(b.root,4) #case1
+print("After deleting: ")
+b.inorder(b.root)
