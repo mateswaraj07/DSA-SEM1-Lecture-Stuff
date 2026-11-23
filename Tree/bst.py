@@ -89,12 +89,24 @@ class BST:
         max_val = current.data
         return max_val
     
-    def delete(self,data):
+    def delete(self,root,val):
         # if a node is deleted it is replaced by its inorder successor(left and right child)
         # if a node is a left child of its parent, it is replaced by its right child
         # if a node is a right child of its parent, it is replaced by its left
         # leaf node is deleted directly no replacement is needed
-        pass
+        if root is None:
+            return root
+        if val<root.data:   #for left subtree
+            root.left=self.delete(root.left,val)
+        elif val>=root.data:   #for right subtree
+            root.right=self.delete(root.right,val)
+        else:
+            if root.left is None: #if the node to be deleted has no left child, return its right child
+                return root.right
+            if root.right is None: #if the node to be deleted has no right child, return its left child
+                return root.left
+            
+
 
 b=BST()
 b.insert(Node(100))
