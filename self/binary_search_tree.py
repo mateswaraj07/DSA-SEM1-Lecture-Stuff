@@ -123,7 +123,7 @@ print("\nPostorder:")
 tree.postorder(tree.root)
 
 # Deleting a node
-tree.root = tree.delete(tree.root, 70)
+tree.root = tree.delete(tree.root, 70) # Update root with the modified BST after deletion
 
 print("\n\nAfter Deletion (Inorder):")
 tree.inorder(tree.root)
