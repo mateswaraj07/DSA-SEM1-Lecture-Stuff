@@ -138,6 +138,14 @@ class BST:
         if left != -1:
             return left
         return self.degree(temp.right, value)
+    #  Count leaf nodes
+    def countleaf(self, temp):
+        if temp is None:
+            return 0
+        if temp.left is None and temp.right is None:
+            return 1
+        return (self.countleaf(temp.left) +
+                self.countleaf(temp.right))
     
     # inorder and preorder is given and told to construct a tree from it
     def build_pre_in(self, inorder, preorder):
