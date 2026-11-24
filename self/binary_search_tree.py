@@ -35,4 +35,25 @@ class BST:
                     else:
                         temp = temp.right
 
+    # Inorder Traversal
+        def inorder(self, temp):
+            if temp is not None:
+                self.inorder(temp.left)
+                print(temp.data, end=" ")
+                self.inorder(temp.right)
     
+        # Preorder Traversal
+        def preorder(self, temp):
+            if temp is not None:
+                print(temp.data, end=" ")
+                self.preorder(temp.left)
+                self.preorder(temp.right)
+    
+        # Postorder Traversal
+        def postorder(self, temp):
+            if temp is not None:
+                self.postorder(temp.left)
+                self.postorder(temp.right)
+                print(temp.data, end=" ")
+    
+        
