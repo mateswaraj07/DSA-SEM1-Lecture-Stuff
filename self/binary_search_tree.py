@@ -95,4 +95,30 @@ class BST:
         return temp
                 
                 
-                
+# Main Program
+tree = BST()
+
+# Inserting nodes
+tree.insert(Node(50))
+tree.insert(Node(30))
+tree.insert(Node(70))
+tree.insert(Node(20))
+tree.insert(Node(40))
+tree.insert(Node(60))
+tree.insert(Node(80))
+
+# Display Traversals
+print("Inorder:")
+tree.inorder(tree.root)
+
+print("\nPreorder:")
+tree.preorder(tree.root)
+
+print("\nPostorder:")
+tree.postorder(tree.root)
+
+# Deleting a node
+tree.root = tree.delete(tree.root, 70)
+
+print("\n\nAfter Deletion (Inorder):")
+tree.inorder(tree.root)
