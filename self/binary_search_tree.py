@@ -156,6 +156,23 @@ class BST:
             self.printleaf(temp.left)
             self.printleaf(temp.right)
 
+    # Height of a node / tree
+    def height(self, temp):
+        if temp is None:
+            return -1
+        left = self.height(temp.left)
+        right = self.height(temp.right)
+        return 1 + max(left, right)
+    
+    # Print nodes at a particular level
+    def printlevel(self, temp, level):
+        if temp is None:
+            return
+        if level == 0:
+            print(temp.data, end=" ")
+            return
+        self.printlevel(temp.left, level - 1)
+        self.printlevel(temp.right, level - 1)
     # inorder and preorder is given and told to construct a tree from it
     def build_pre_in(self, inorder, preorder):
         if len(inorder) == 0:
