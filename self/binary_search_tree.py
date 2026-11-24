@@ -249,6 +249,28 @@ print("\n\nMinimum Value: ",tree.minimumvalue(tree.root))
 # Maximum Value
 print("\n\nMaximum Value: ",tree.maxvalue(tree.root))
 
+# Count Siblings
+print("\nSiblings of 30:", tree.siblings(tree.root, 30))
+
+# Degree of Node
+print("Degree of 30:", tree.degree(tree.root, 30))
+
+# Leaf Nodes
+print("Total Leaf Nodes:", tree.countleaf(tree.root))
+
+print("Leaf Nodes:")
+tree.printleaf(tree.root)
+
+# Height
+print("\nHeight of Tree:", tree.height(tree.root))
+
+# Nodes at Particular Level
+print("Nodes at Level 2:")
+tree.printlevel(tree.root, 2)
+
+# Strictly Binary Tree
+print("\nStrictly Binary:", tree.strictbinary(tree.root))
+
 # Inorder + Preorder Construction
 print("\n\nConstructing Tree using Inorder + Preorder")
 inorder1 = [20, 30, 40, 50, 60, 70, 80]
