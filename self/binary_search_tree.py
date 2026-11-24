@@ -122,6 +122,22 @@ class BST:
                 return 1
         return (self.siblings(temp.left, value) +
                 self.siblings(temp.right, value))
+
+    # Print degree of a node
+    def degree(self, temp, value):
+        if temp is None:
+            return -1
+        if temp.data == value:
+            count = 0
+            if temp.left is not None:
+                count += 1
+            if temp.right is not None:
+                count += 1
+            return count
+        left = self.degree(temp.left, value)
+        if left != -1:
+            return left
+        return self.degree(temp.right, value)
     
     # inorder and preorder is given and told to construct a tree from it
     def build_pre_in(self, inorder, preorder):
