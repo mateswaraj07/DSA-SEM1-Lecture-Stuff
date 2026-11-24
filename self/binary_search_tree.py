@@ -113,6 +113,16 @@ class BST:
             print(temp.data, end=" ")
             self.descending(temp.left)
 
+    # Count siblings of a particular node
+    def siblings(self, temp, value):
+        if temp is None:
+            return 0
+        if temp.left is not None and temp.right is not None:
+            if temp.left.data == value or temp.right.data == value:
+                return 1
+        return (self.siblings(temp.left, value) +
+                self.siblings(temp.right, value))
+    
     # inorder and preorder is given and told to construct a tree from it
     def build_pre_in(self, inorder, preorder):
         if len(inorder) == 0:
