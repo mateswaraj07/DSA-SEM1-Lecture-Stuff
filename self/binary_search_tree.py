@@ -57,11 +57,23 @@ class BST:
             print(temp.data, end=" ")
 
     # Finding Minimum Value
-    def minvalue(self, temp):
+    def minimumvalue(self, temp):
         while temp.left is not None:
             temp = temp.left
-        return temp
-
+        return temp.data
+    
+    # Helper Function for delete()
+    def minvalue(self, temp):
+            while temp.left is not None:
+                temp = temp.left
+            return temp
+    
+    # Finding Maximum Value
+    def maxvalue(self, temp):
+        while temp.right is not None:
+            temp=temp.right
+        return temp.data
+    
     # Deletion
     def delete(self, temp, value):
         if temp is None:
@@ -94,6 +106,7 @@ class BST:
 
         return temp
     
+    # Descending order
     def descending(self, temp):
         if temp is not None:
             self.descending(temp.right)
@@ -131,3 +144,9 @@ tree.inorder(tree.root)
 #Descending Order
 print("\n\nDescending Order using Inorder")
 tree.descending(tree.root)
+
+# Minimum Value
+print("\n\nMinimum Value: ",tree.minimumvalue(tree.root))
+
+# Maximum Value
+print("\n\nMaximum Value: ",tree.maxvalue(tree.root))
