@@ -61,5 +61,38 @@ class BST:
         while temp.left is not None:
             temp = temp.left
         return temp
-    
+
+    # Deletion
+    def delete(self, temp, value):
+        if temp is None:
+            return temp
+
+        if value < temp.data:
+            temp.left = self.delete(temp.left, value)
+
+        elif value > temp.data:
+            temp.right = self.delete(temp.right, value)
+
+        else:
+            # No child
+            if temp.left is None and temp.right is None:
+                return None
+
+            # Only right child
+            elif temp.left is None:
+                return temp.right
+
+            # Only left child
+            elif temp.right is None:
+                return temp.left
+
+            # Two children
+            else:
+                minnode = self.minvalue(temp.right)
+                temp.data = minnode.data
+                temp.right = self.delete(temp.right, minnode.data)
+
+        return temp
+                
+                
                 
