@@ -112,9 +112,35 @@ class BST:
             self.descending(temp.right)
             print(temp.data, end=" ")
             self.descending(temp.left)
-                
+
+    # inorder and preorder is given and told to construct a tree from it
+    def build_pre_in(self, inorder, preorder):
+        if len(inorder) == 0:
+            return None
+        root = Node(preorder[0])
+        pos = inorder.index(preorder[0])
+        root.left = self.build_pre_in(
+            inorder[:pos], preorder[1:pos+1])
+        root.right = self.build_pre_in(
+            inorder[pos+1:], preorder[pos+1:])
+        return root
+
+    #inorder and postorder is given and told to construct a tree from it
+    def build_post_in(self, inorder, postorder):
+        if len(inorder) == 0:
+            return None
+        root = Node(postorder[-1])
+        pos = inorder.index(postorder[-1])
+        root.left = self.build_post_in(
+            inorder[:pos], postorder[:pos])
+        root.right = self.build_post_in(
+            inorder[pos+1:], postorder[pos:-1])
+        return root
+        
 # Main Program
 tree = BST()
+tree1 = BST()
+tree2 = BST()
 
 # Inserting nodes
 tree.insert(Node(50))
@@ -150,3 +176,31 @@ print("\n\nMinimum Value: ",tree.minimumvalue(tree.root))
 
 # Maximum Value
 print("\n\nMaximum Value: ",tree.maxvalue(tree.root))
+
+# Inorder + Preorder Construction
+print("\n\nConstructing Tree using Inorder + Preorder")
+inorder1 = [20, 30, 40, 50, 60, 70, 80]
+preorder1 = [50, 30, 20, 40, 70, 60, 80]
+print("Given Inorder:", inorder1)
+print("Given Preorder:", preorder1)
+tree1.root = tree1.build_pre_in(inorder1, preorder1)
+print("Inorder:")
+tree1.inorder(tree1.root)
+print("\nPreorder:")
+tree1.preorder(tree1.root)
+print("\nPostorder:")
+tree1.postorder(tree1.root)
+
+# Inorder + Postorder Construction
+print("\n\nConstructing Tree using Inorder + Postorder")
+inorder2 = [20, 30, 40, 50, 60, 70, 80]
+postorder2 = [20, 40, 30, 60, 80, 70, 50]
+print("Given Inorder:", inorder2)
+print("Given Postorder:", postorder2)
+tree2.root = tree2.build_post_in(inorder2, postorder2)
+print("Inorder:")
+tree2.inorder(tree2.root)
+print("\nPreorder:")
+tree2.preorder(tree2.root)
+print("\nPostorder:")
+tree2.postorder(tree2.root)
