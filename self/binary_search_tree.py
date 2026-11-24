@@ -93,7 +93,12 @@ class BST:
                 temp.right = self.delete(temp.right, minnode.data)
 
         return temp
-                
+    
+    def descending(self, temp):
+        if temp is not None:
+            self.descending(temp.right)
+            print(temp.data, end=" ")
+            self.descending(temp.left)
                 
 # Main Program
 tree = BST()
@@ -122,3 +127,7 @@ tree.root = tree.delete(tree.root, 70)
 
 print("\n\nAfter Deletion (Inorder):")
 tree.inorder(tree.root)
+
+#Descending Order
+print("\n\nDescending Order using Inorder")
+tree.descending(tree.root)
