@@ -173,6 +173,18 @@ class BST:
             return
         self.printlevel(temp.left, level - 1)
         self.printlevel(temp.right, level - 1)
+
+    # Check whether a tree is a Strictly Binary Tree
+    def strictbinary(self, temp):
+        if temp is None:
+            return True
+        if temp.left is None and temp.right is None:
+            return True
+        if temp.left is not None and temp.right is not None:
+            return (self.strictbinary(temp.left) and
+                    self.strictbinary(temp.right))
+        return False
+
     # inorder and preorder is given and told to construct a tree from it
     def build_pre_in(self, inorder, preorder):
         if len(inorder) == 0:
