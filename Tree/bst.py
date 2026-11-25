@@ -7,6 +7,7 @@ class Node:
 class BST:
     def __init__(self):
         self.root=None
+        self.cnt = 0
     def insert(self,newnode):
         if self.root is None:   #IF BST IS EMPTY
             self.root=newnode
@@ -174,3 +175,14 @@ print("Maximum Value in BST:", b.max_val())
 b.del_node(b.root,4) #case1
 print("After deleting: ")
 b.inorder(b.root)
+# Count leaf nodes
+b.cnt = 0
+b.count_leaf(b1.root)
+
+print("\nTotal no of leaf nodes:", b1.cnt)
+
+# Search node
+if b1.search(50):
+    print("\nFound the node")
+else:
+    print("\nNot found")
