@@ -132,6 +132,16 @@ class BST:
         while temp is not None and temp.left is not None:
             temp=temp.left
         return temp
+    
+    # Count leaf nodes
+    def count_leaf(self, rt):
+        if rt is None:
+            return
+        self.count_leaf(rt.left)
+        if rt.left is None and rt.right is None:
+            self.cnt += 1
+        self.count_leaf(rt.right)
+
 
 b=BST()
 b.insert(Node(100))
