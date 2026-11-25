@@ -142,6 +142,17 @@ class BST:
             self.cnt += 1
         self.count_leaf(rt.right)
 
+    # Search a node
+    def search(self, key):
+        temp = self.root
+        while temp:
+            if temp.data == key:
+                return True
+            elif key < temp.data:
+                temp = temp.left
+            else:
+                temp = temp.right
+        return False
 
 b=BST()
 b.insert(Node(100))
