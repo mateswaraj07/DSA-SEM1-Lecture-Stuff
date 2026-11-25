@@ -7,7 +7,7 @@ class Node:
 class BST:
     def __init__(self):
         self.root=None
-        self.cnt = 0
+        
     def insert(self,newnode):
         if self.root is None:   #IF BST IS EMPTY
             self.root=newnode
