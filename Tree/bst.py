@@ -182,7 +182,7 @@ b.count_leaf(b1.root)
 print("\nTotal no of leaf nodes:", b1.cnt)
 
 # Search node
-if b1.search(50):
+if b.search(50):
     print("\nFound the node")
 else:
     print("\nNot found")
