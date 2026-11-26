@@ -155,6 +155,24 @@ class BST:
                 temp = temp.right
         return False
 
+    #Print level wise nodes
+    def level_order(self,rt):
+        if rt is None:
+            print("BST is empty")
+            return
+        arr=[]
+        cnt=0
+        arr.append(rt)
+        while cnt<len(arr):
+            temp=arr[cnt]
+            cnt+=1
+            print(temp.data,end=" ")
+            if temp.left:
+                arr.append(temp.left)
+            if temp.right:
+                arr.append(temp.right)
+            
+
 b=BST()
 b.insert(Node(100))
 b.insert(Node(10))
@@ -177,12 +195,17 @@ print("After deleting: ")
 b.inorder(b.root)
 # Count leaf nodes
 b.cnt = 0
-b.count_leaf(b1.root)
+b.count_leaf(b.root)
 
-print("\nTotal no of leaf nodes:", b1.cnt)
+print("\nTotal no of leaf nodes:", b.cnt)
 
 # Search node
 if b.search(50):
     print("\nFound the node")
 else:
     print("\nNot found")
+
+print("\n\n\nInorder")
+b.inorder(b.root)
+print("\n\n")
+b.level_order(b.root)
