@@ -171,7 +171,27 @@ class BST:
                 arr.append(temp.left)
             if temp.right:
                 arr.append(temp.right)
-            
+    # Count nodes at a level
+    def level_count(self,rt):
+            if rt is None:
+                print("BST is empty")
+                return
+            arr=[]
+            cnt=0
+            level=0
+            arr.append(rt)
+            while cnt<len(arr):
+                node_count=len(arr)-cnt #LEVEL WISE NODE COUNT
+                print("\nLevel No: ",level,end=" ")
+                for i in range(node_count):
+                    temp=arr[cnt]
+                    cnt+=1 #no of nodes visited
+                    print(temp.data,end=" ") #visiting node
+                    if temp.left:
+                        arr.append(temp.left)
+                    if temp.right:
+                        arr.append(temp.right)
+                level+=1
 
 b=BST()
 b.insert(Node(100))
@@ -209,3 +229,6 @@ print("\n\n\nInorder")
 b.inorder(b.root)
 print("\n\n")
 b.level_order(b.root)
+
+print("\nLevel Count")
+b.level_count(b.root)
